@@ -1,6 +1,7 @@
 package me.nohchang.blog.service;
 
 import lombok.RequiredArgsConstructor;
+import me.nohchang.blog.config.error.exception.ArticleNotFoundException;
 import me.nohchang.blog.domain.Article;
 import me.nohchang.blog.dto.AddArticleRequest;
 import me.nohchang.blog.dto.UpdateArticleRequest;
@@ -27,7 +28,8 @@ public class BlogService {
 
     public Article findById(long id) {
         return blogRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
+                .orElseThrow(ArticleNotFoundException::new);
+//                .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
     }
 
     public void delete(long id) {
