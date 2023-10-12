@@ -23,8 +23,8 @@ spring:
           google:
 #            client-id: ${google.client-id}
 #            client-secret: ${google.client-secret}
-            client-id: ${{ secrets.GOOGLE_CLIENT_ID }}
-            client-secret: ${{ secrets.GOOGLE_CLIENT_PW }}
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_PW}
             scope:
               - email
               - profile
@@ -32,4 +32,4 @@ spring:
 jwt:
   issuer: ajufresh@gmail.com
 #  secret_key: study-springboot
-  secret_key: ${{ secrets.JWT_SECRET_KEY }}
+  secret_key: ${JWT_SECRET_KEY}
